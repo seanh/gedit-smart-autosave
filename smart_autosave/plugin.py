@@ -53,11 +53,6 @@ class SASWindowActivatable(GObject.Object, Gedit.WindowActivatable):
             self.window.connect("focus-out-event", self.focus_out),
         ]
 
-        # Remove the [Save] button from the header bar.
-        header_bar = self.window.get_titlebar().get_children()[-1]
-        save_button = header_bar.get_children()[3]
-        header_bar.remove(save_button)
-
     def do_deactivate(self):
         for handler_id in self.window.smart_autosave_plugin_handler_ids:
             self.window.disconnect(handler_id)

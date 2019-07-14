@@ -25,21 +25,15 @@ your computer crashes.  `gedit-smart-autosave` is much more aggressive about
 saving your work:
 
 * Autosaves your file whenever you stop editing for half a second
-* Autosaves immediately when you change tabs (if the half second
+* Autosaves immediately when you change tabs (if the half-second
   timer didn't save it already)
 * Autosaves immediately when the gedit window loses focus
-
-It also removes the giant <kbd>Save</kbd> button from gedit's headerbar.
-If you use this plugin in combination with
-[`gedit-autoname`](https://github.com/seanh/gedit-autoname) you won't be
-needing the <kbd>Save</kbd> button.
-(You can still use <kbd><kbd>Ctrl</kbd> + <kbd>s</kbd></kbd> to save manually).
 
 As with the builtin autosave feature, this **will not save the "Untitled
 Document"s** that you get when you first open a new window or tab. Autosaving
 will only kick in after you've saved the file once manually, giving it a
 filename and directory. I recommend using `gedit-smart-autosave` together with my
-[`gedit-autoname`](https://github.com/seanh/gedit-autoname) plugin which
+[`gedit-autoname`](https://github.com/seanh/gedit-autoname) plugin that
 automatically names untitled documents when you open them so that autosave
 works immediately.
 
@@ -61,4 +55,5 @@ before doing these actions. Otherwise you'll get gedit's
 "Save changes to document before closing?" dialog.
 
 I'd prefer it to just save the changes, rather than asking to save them, but I
-couldn't figure out how to get that to work.
+couldn't figure out how to get that to work. A pull request to fix this would
+be very welcome.
