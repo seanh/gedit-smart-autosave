@@ -32,7 +32,6 @@ class SASViewActivatable(GObject.Object, Gedit.ViewActivatable):
     def maybe_save(self):
         maybe_save(self.window)
         self.timeout_id = None
-        return False
 
     @property
     def document(self):
