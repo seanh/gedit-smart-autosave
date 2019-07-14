@@ -1,0 +1,9 @@
+[Plugin]
+Loader=python3
+Module=smart_autosave
+IAge=3
+Name=Smart Autosave
+Description=Smarter autosaving
+Authors=Sean Hammond
+Copyright=Copyright © 2019 Sean Hammond
+Website=https://github.com/seanh/gedit-smart-autosave
