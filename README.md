@@ -27,9 +27,11 @@ saving your work:
   timer didn't save it already)
 * Autosaves immediately when the gedit window loses focus
 
-It also removes the giant <kbd>Save</kbd> button from gedit's headerbar, you
-won't be needing it (you can still use <kbd><kbd>Ctrl</kbd> +
-<kbd>s</kbd></kbd> to save manually).
+It also removes the giant <kbd>Save</kbd> button from gedit's headerbar.
+If you use this plugin in combination with
+[`gedit-autoname`](https://github.com/seanh/gedit-autoname) you won't be
+needing the <kbd>Save</kbd> button.
+(You can still use <kbd><kbd>Ctrl</kbd> + <kbd>s</kbd></kbd> to save manually).
 
 As with the builtin autosave feature, this **will not save the "Untitled
 Document"s** that you get when you first open a new window or tab. Autosaving
