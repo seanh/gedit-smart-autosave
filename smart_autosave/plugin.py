@@ -52,30 +52,17 @@ class SASWindowActivatable(GObject.Object, Gedit.WindowActivatable):
         self.window.smart_autosave_plugin_handler_ids = [
             self.window.connect("active-tab-changed", self.active_tab_changed),
             self.window.connect("focus-out-event", self.focus_out),
-            self.window.connect("delete-event", self.delete_event),
         ]
-
-        self.notebook = lookup_widget(self.window, "GeditNotebook")[0]
-        self.tab_close_request_handler_id = self.notebook.connect(
-            "tab-close-request", self.tab_close_request
-        )
 
     def do_deactivate(self):
         for handler_id in self.window.smart_autosave_plugin_handler_ids:
             self.window.disconnect(handler_id)
-        self.notebook.disconnect(self.tab_close_request_handler_id)
 
     def active_tab_changed(self, window, _new_tab):
         maybe_save(window)
 
     def focus_out(self, window, _event):
         maybe_save(window)
-
-    def delete_event(self, window, _event):
-        pass
-
-    def tab_close_request(self, _notebook, _tab):
-        pass
 
 
 def maybe_save(window):
@@ -93,14 +80,3 @@ def maybe_save(window):
             return False
 
         Gedit.commands_save_document_async(document, window)
-        document.set_modified(False)
-
-
-def lookup_widget(base, widget_name):
-    widgets = []
-    for widget in base.get_children():
-        if widget.get_name() == widget_name:
-            widgets.append(widget)
-        if isinstance(widget, Gtk.Container):
-            widgets += lookup_widget(widget, widget_name)
-    return widgets
