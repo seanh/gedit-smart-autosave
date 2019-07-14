@@ -5,6 +5,8 @@ gedit-smart-autosave
 [gedit](https://wiki.gnome.org/Apps/Gedit) in a smarter way than the builtin
 autosave setting.
 
+![Demo](demo.gif)
+
 Installation
 ------------
 
