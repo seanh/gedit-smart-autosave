@@ -72,7 +72,7 @@ def maybe_save(window):
         if document.is_untitled():
             return False
 
-        if not document.is_local():
+        if not document.get_file().is_local():
             return False
 
         if not document.get_modified():
