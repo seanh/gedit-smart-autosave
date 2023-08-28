@@ -66,13 +66,18 @@ class SASWindowActivatable(GObject.Object, Gedit.WindowActivatable):
 
 def maybe_save(window):
     for document in window.get_unsaved_documents():
-        if document.get_file().is_readonly():
+        file = document.get_file()
+
+        if file.is_readonly():
             return False
 
-        if document.is_untitled():
+        if file.is_externally_modified():
             return False
 
-        if not document.get_file().is_local():
+        if not file.get_location():
+            return False
+
+        if not file.is_local():
             return False
 
         if not document.get_modified():
